@@ -20,7 +20,7 @@ pipeline {
         stage('sonar') {
             steps {
                 withSonarQubeEnv('sonar') {
-                    sh 'mvn -B sonar:sonar'
+                    sh 'mvn -B sonar:sonar -Dsonar.login=d40041535f4bdbb44bace3803171331b06d78315'
                 }
             }
         }
