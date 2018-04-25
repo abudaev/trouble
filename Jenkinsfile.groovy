@@ -15,14 +15,19 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn -B clean package'
             }
         }
-        stage('sonar'){
-            steps{
-                withSonarQubeEnv('sonar'){
-                    sh 'mvn sonar:sonar'
+        stage('sonar') {
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh 'mvn -B sonar:sonar'
                 }
+            }
+        }
+        stage('wait qg') {
+            steps {
+                waitForQualityGate abortPipeline: true
             }
         }
 
