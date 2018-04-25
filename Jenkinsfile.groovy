@@ -26,14 +26,7 @@ pipeline {
         }
         stage('wait qg') {
             steps {
-                script {
-                    timeout(1) {
-                        def qg = waitForQualityGate()
-                        if (qg.status != 'OK') {
-                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
-                        }
-                    }
-                }
+                waitForQualityGate abortPipeline: true,  authToken: d40041535f4bdbb44bace3803171331b06d78315
             }
         }
     }
