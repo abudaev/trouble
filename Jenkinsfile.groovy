@@ -1,10 +1,10 @@
 pipeline {
 
     agent {
-        label 'docker'
+        label 'Linux_Default'
     }
     tools {
-        manve ''
+        maven 'maven3.5.3'
     }
 
     stages {
