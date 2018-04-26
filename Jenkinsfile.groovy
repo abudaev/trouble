@@ -26,7 +26,7 @@ pipeline {
         }
         stage('wait qg') {
             steps {
-                waitForQualityGate abortPipeline: true//,  authToken: 'd40041535f4bdbb44bace3803171331b06d78315'
+                waitForQualityGate abortPipeline: true,  authToken: 'd40041535f4bdbb44bace3803171331b06d78315'
             }
         }
     }
